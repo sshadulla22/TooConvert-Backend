@@ -45,7 +45,7 @@ def health():
 # ================== PDF TOOLS ====================
 # =================================================
 
-@app.post("/pdf-to-doc")
+@app.post("/pdf-to-docx/")
 async def pdf_to_docx(file: UploadFile = File(...)):
     from pdf2docx import Converter
 
@@ -58,7 +58,7 @@ async def pdf_to_docx(file: UploadFile = File(...)):
 
     return FileResponse(output_path, filename="converted.docx")
 
-@app.post("/merge-pdf")
+@app.post("/merge-pdf/")
 async def merge_pdf(files: list[UploadFile] = File(...)):
     from PyPDF2 import PdfReader, PdfWriter
 
@@ -74,7 +74,7 @@ async def merge_pdf(files: list[UploadFile] = File(...)):
 
     return FileResponse(output_path, filename="merged.pdf")
 
-@app.post("/split-pdf")
+@app.post("/split-pdf/")
 async def split_pdf(file: UploadFile = File(...), pages_per_split: int = Form(...)):
     from PyPDF2 import PdfReader, PdfWriter
 
