@@ -70,7 +70,9 @@ async def root():
         "redoc": "/redoc"
     }
 
-
+@app.get("/health")
+def health():
+    return {"message": "Ham abhi Jinda hai"}
 
 # ---------------- PDF → DOCX ----------------
 @app.post("/pdf-to-docx/")
