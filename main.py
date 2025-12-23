@@ -45,7 +45,7 @@ def health():
 # ================== PDF TOOLS ====================
 # =================================================
 
-@app.post("/pdf-to-docx")
+@app.post("/pdf-to-doc")
 async def pdf_to_docx(file: UploadFile = File(...)):
     from pdf2docx import Converter
 
